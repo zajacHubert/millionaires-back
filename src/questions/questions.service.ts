@@ -14,6 +14,10 @@ export class QuestionsService {
         return question;
     }
 
+    async getAll(): Promise<QuestionEntity[]> {
+        return this.questionsRepository.find();
+    }
+
 
 
 }
