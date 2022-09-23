@@ -2,6 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { QuestionEntity } from './questions/question.entity';
 import { QuestionsModule } from './questions/questions.module';
 
 @Module({
@@ -13,7 +14,7 @@ import { QuestionsModule } from './questions/questions.module';
       username: 'root',
       password: '',
       database: 'millionaires',
-      entities: [],
+      entities: [QuestionEntity],
       synchronize: true,
     }),
     QuestionsModule,
