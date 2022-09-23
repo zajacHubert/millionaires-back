@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateQuestionDto } from './dto/create-question.dto';
+import { EditQuestionDto } from './dto/edit-question.dto';
 import { QuestionEntity } from './question.entity';
 
 @Injectable()
@@ -32,5 +33,10 @@ export class QuestionsService {
         if (result.affected === 0) {
             throw new NotFoundException(`There is no question with ID:${id}`);
         }
+    }
+
+    async editQuestion(id: string, editQuestion: EditQuestionDto) {
+        const found = await this.getOne(id);
+        await this.questionsRepository.update(found, editQuestion);
     }
 }
