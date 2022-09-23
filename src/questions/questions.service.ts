@@ -26,6 +26,11 @@ export class QuestionsService {
         return found;
     }
 
+    async deleteQuestion(id: string): Promise<void> {
+        const result = await this.questionsRepository.delete({ id });
 
-
+        if (result.affected === 0) {
+            throw new NotFoundException(`There is no question with ID:${id}`);
+        }
+    }
 }

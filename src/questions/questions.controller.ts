@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { CreateQuestionDto } from './dto/create-question.dto';
 import { QuestionsService } from './questions.service';
 
@@ -19,5 +19,10 @@ export class QuestionsController {
     @Get('/:id')
     getOne(@Param('id') id: string) {
         return this.questionsService.getOne(id);
+    }
+
+    @Delete('/:id')
+    deleteQuestion(@Param('id') id: string) {
+        return this.questionsService.deleteQuestion(id);
     }
 }
