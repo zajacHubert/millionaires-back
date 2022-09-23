@@ -5,7 +5,7 @@ export class CreateQuestionDto {
     @IsString()
     @MinLength(5)
     @MaxLength(200)
-    text: string;
+    txt: string;
 
     @IsString()
     @MinLength(1)
