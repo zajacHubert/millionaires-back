@@ -4,9 +4,3 @@ export enum DifficultyLevel {
     hard,
 }
 
-export enum Answers {
-    a,
-    b,
-    c,
-    d,
-}

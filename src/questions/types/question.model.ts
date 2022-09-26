@@ -1,4 +1,3 @@
-import { Answers } from "./question.enum";
 
 export interface Question {
     id: string;
@@ -7,5 +6,5 @@ export interface Question {
     ansB: string;
     ansC: string;
     ansD: string;
-    correctAns: Answers;
+    correctAns: string;
 }

@@ -1,5 +1,4 @@
 import { IsEnum, IsString, MaxLength, MinLength } from "class-validator";
-import { Answers } from "../types/question.enum";
 
 export class EditQuestionDto {
     @IsString()
@@ -29,7 +28,6 @@ export class EditQuestionDto {
 
     @IsString()
     @MinLength(1)
-    @MaxLength(1)
-    @IsEnum(Answers)
+    @MaxLength(30)
     correctAns: string;
 }
