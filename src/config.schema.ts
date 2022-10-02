@@ -6,6 +6,6 @@ export const configValidationSchema = Joi.object({
     DB_HOST: Joi.string().required(),
     DB_PORT: Joi.number().default(3306).required(),
     DB_USERNAME: Joi.string().required(),
-    DB_PASSWORD: Joi.string().default('ed53e15f').required(),
+    DB_PASSWORD: Joi.string().default('e74ca428').required(),
     DB_DATABASE: Joi.string().required(),
 });
