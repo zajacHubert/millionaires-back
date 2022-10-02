@@ -1,9 +1,10 @@
 import { IsEnum, IsString, MaxLength, MinLength } from "class-validator";
+import { DifficultyLevel } from "../types/question.enum";
 
 export class CreateQuestionDto {
     @IsString()
     @MinLength(5)
-    @MaxLength(200)
+    @MaxLength(300)
     txt: string;
 
     @IsString()
@@ -30,4 +31,10 @@ export class CreateQuestionDto {
     @MinLength(1)
     @MaxLength(30)
     correctAns: string;
+
+    @IsString()
+    @MinLength(4)
+    @MaxLength(6)
+    @IsEnum(DifficultyLevel)
+    difficultyLevel: string;
 }

@@ -9,18 +9,33 @@ export class QuestionEntity {
     @Column()
     txt: string;
 
-    @Column()
+    @Column({
+        length: 30,
+    })
     ansA: string;
 
-    @Column()
+    @Column({
+        length: 30,
+    })
     ansB: string;
 
-    @Column()
+    @Column({
+        length: 30,
+    })
     ansC: string;
 
-    @Column()
+    @Column({
+        length: 30,
+    })
     ansD: string;
 
-    @Column()
+    @Column({
+        length: 30,
+    })
     correctAns: string;
+
+    @Column({
+        length: 6,
+    })
+    difficultyLevel: string;
 }

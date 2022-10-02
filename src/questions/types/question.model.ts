@@ -1,3 +1,4 @@
+import { DifficultyLevel } from "./question.enum";
 
 export interface Question {
     id: string;
@@ -7,4 +8,5 @@ export interface Question {
     ansC: string;
     ansD: string;
     correctAns: string;
+    difficultyLevel: DifficultyLevel;
 }
