@@ -2,7 +2,6 @@ import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/commo
 import { CreateQuestionDto } from './dto/create-question.dto';
 import { EditQuestionDto } from './dto/edit-question.dto';
 import { QuestionsService } from './questions.service';
-
 @Controller('questions')
 export class QuestionsController {
     constructor(private questionsService: QuestionsService) { }

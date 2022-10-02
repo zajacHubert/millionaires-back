@@ -1,6 +1,5 @@
 import { IsEnum, IsString, MaxLength, MinLength } from "class-validator";
 import { DifficultyLevel } from "../types/question.enum";
-
 export class EditQuestionDto {
     @IsString()
     @MinLength(5)
