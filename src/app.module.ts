@@ -5,33 +5,20 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { QuestionsModule } from './questions/questions.module';
 import { configValidationSchema } from './config.schema';
+import { QuestionEntity } from './questions/question.entity';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({
-      envFilePath: [`.env.stage.${process.env.STAGE}`],
-      validationSchema: configValidationSchema,
-    }),
-    TypeOrmModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: async (configService: ConfigService) => {
-        const isProd = configService.get('STAGE') === 'prod';
-        return {
-          ssl: isProd,
-          extra: {
-            ssl: isProd ? { rejectUnauthorized: false } : null,
-          },
-          type: 'mysql',
-          autoLoadEntities: true,
-          synchronize: true,
-          host: configService.get('DB_HOST'),
-          port: configService.get('DB_PORT'),
-          username: configService.get('DB_USERNAME'),
-          password: configService.get('DB_PASSWORD'),
-          database: configService.get('DB_DATABASE'),
-        };
-      },
+    TypeOrmModule.forRoot({
+          type: 'mysql',        
+          host: process.env.DB_HOST,
+          port: Number(process.env.DB_PORT),
+          username: 'root',
+          password: process.env.DB_PASSWORD,
+          database: 'millionaires',        
+          entities:[QuestionEntity],
+          synchronize:true,
+       
     }),
     QuestionsModule,
   ],
