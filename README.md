@@ -1,5 +1,3 @@
-LIVE https://zajachubert.github.io/millionaires-front/
-
 Installation $ npm install
 
 Running the app $ npm run start
